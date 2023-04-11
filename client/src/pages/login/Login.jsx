@@ -15,8 +15,6 @@ const Login = () => {
     },
   });
 
-  const [isDisabled, setIsDisabled] = useState(true);
-
   const getUserData = (e) => {
     const { name, value } = e.target;
     const errors = { ...user.errors };
@@ -40,20 +38,26 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <h1
-        className={`
+    <div className="login md:grid md:grid-cols-2 md:pt-36">
+      <div className="details">
+        <h1
+          className={`
       text-4xl
+      md:text-7xl
       font-bold
       `}
+        >
+          Hello, <br /> Welcome Back!
+        </h1>
+        <p className="my-9 text-black-50">
+          Water is life. Water is a basic human need. In <br /> various lines of
+          life, humans need water.
+        </p>
+      </div>
+      <form
+        onSubmit={submitHandler}
+        className="text-center md:p-5 md:shadow-xl"
       >
-        Hello, <br /> Welcome Back!
-      </h1>
-      <p className="my-9 text-black-50">
-        Water is life. Water is a basic human need. In <br /> various lines of
-        life, humans need water.
-      </p>
-      <form onSubmit={submitHandler}>
         <Input
           onChangeAction={getUserData}
           type="text"
